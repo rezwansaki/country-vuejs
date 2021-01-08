@@ -2,6 +2,10 @@
 
 My first vue js work. I've fetched data from the web api here. I have used 'https://restcountries.eu/rest/v2/all' for the web api. Here is the name of the country, the flag and some information.
 
+## Visit for testing
+
+https://country-vuejs.vercel.app/
+
 <hr>
 
 ## Project setup
@@ -31,6 +35,8 @@ npm run lint
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+<hr>
 
 ### Project Version:
 
