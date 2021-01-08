@@ -1,6 +1,6 @@
 # Country-Vuejs - Vue JS 3 Project
 
-My first vue js work. I've fetched data from the web apai here. I have used 'https://restcountries.eu/rest/v2/all' for the web api. Here is the name of the country, the flag and some information.
+My first vue js work. I've fetched data from the web api here. I have used 'https://restcountries.eu/rest/v2/all' for the web api. Here is the name of the country, the flag and some information.
 
 <hr>
 
