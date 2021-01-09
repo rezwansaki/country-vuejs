@@ -1,5 +1,16 @@
 <template>
     <div class="container">
+        <!-- pagination -->
+        <div class="container mb-4">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item"><button class="page-link" @click.prevent="previous()">Previous</button></li>
+              <li class="page-item"><button class="page-link" @click.prevent="next()">Next</button></li>
+            </ul>
+          </nav>
+        </div>
+        <!-- /pagination -->
+
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
         <!-- a single row from an array  -->
@@ -7,22 +18,7 @@
           <div class="card shadow-sm">
             <img class="card-img-top" :src="country.flag" alt="Card image cap">
             <div class="card-body">
-             <div class="container">
-              <div class="row">
-                  <div class="col-sm">
-                    <strong class="card-text">{{ country.name }}</strong>
-                  </div>
-                  <div class="col-sm">
-                    <!-- blank space -->
-                  </div>
-                  <div class="col-sm">
-                     <button v-if="btnShow" @click="getDetails" type="button" class="btn btn-sm btn-outline-secondary">
-                      Hide
-                    </button>
-                  </div>
-                </div>
-              </div>
-              
+              <strong class="card-text">{{ country.name }}</strong>
               <div>
                 Capital: {{ country.capital }} 
               </div>
