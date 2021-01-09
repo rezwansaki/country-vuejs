@@ -8,27 +8,38 @@
             <img class="card-img-top" :src="country.flag" alt="Card image cap">
             <div class="card-body">
               <strong class="card-text">{{ country.name }}</strong>
-              <p>
+              <div>
                 Capital: {{ country.capital }} 
-                <!-- CallingCodes: {{ country.callingCodes }} <br>
-                Alpha2Code: {{ country.alpha2Code }} <br>
-                Alpha3Code: {{ country.alpha3Code }} <br>
-                TopLevelDomain: {{ country.topLevelDomain }} <br>
-                Region: {{ country.region }} <br>
-                Subregion: {{ country.subregion }} <br>
-                Demonym: {{ country.demonym }} <br>
-                Timezones: {{ country.timezones }} <br>
-                Borders: {{ country.borders }} <br>
-                NativeName: {{ country.nativeName }} <br>
-                NumericCode: {{ country.numericCode }} <br>
-                Currencies: {{ country.currencies }} <br>
-                Languages: {{ country.languages }} <br>
-                RegionalBlocs: {{ country.regionalBlocs }} <br> -->
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
+              </div>
+              <div v-if="detailsInfo">
+                  CallingCodes: {{ country.callingCodes }} <br>
+                  Alpha2Code: {{ country.alpha2Code }} <br>
+                  Alpha3Code: {{ country.alpha3Code }} <br>
+                  TopLevelDomain: {{ country.topLevelDomain }} <br>
+                  Region: {{ country.region }} <br>
+                  Subregion: {{ country.subregion }} <br>
+                  Demonym: {{ country.demonym }} <br>
+                  Timezones: <div class="d-inline" v-for="timezone in country.timezones" :key="timezone">
+                   {{timezone}}
+                  </div><br>
+                  Borders: <div class="d-inline" v-for="border in country.borders" :key="border">
+                   {{border}} |
+                  </div><br>
+                  NativeName: {{ country.nativeName }} <br>
+                  NumericCode: {{ country.numericCode }} <br>
+                  <div class="d-inline" v-for="currencie in country.currencies" :key="currencie">
+                   Currencies Code: {{currencie.code}} <br> Currencies Name: {{currencie.name}} <br> Currencies Symbol: {{currencie.symbol}}
+                  </div> <br>
+                  Languages:
+                  <div class="d-inline" v-for="language in country.languages" :key="language">
+                   {{language.name}} |
+                  </div> 
+              </div>
+              
+              <div class="d-flex justify-content-between align-items-center mt-2">
                 <div class="btn-group">              
-                    <a :href="index" type="button" class="btn btn-sm btn-outline-secondary">
-                    View Details</a> 
+                    <button @click="getDetails" type="button" class="btn btn-sm btn-outline-secondary">
+                    View Details</button>
                 </div>
               </div>
             </div>
@@ -57,7 +68,8 @@ export default {
           first: 0,
           last: 12,
           totalInPerPage: 12,
-          countries: []
+          countries: [],
+          detailsInfo: false
         }
     },
     mounted(){
@@ -90,6 +102,13 @@ export default {
           this.first = this.totalCounties - this.totalInPerPage;
           this.last = this.totalCounties;
           this.fetchData()
+        }
+      },
+      getDetails(){
+        if(this.detailsInfo == false){
+          this.detailsInfo = true;
+        }else{
+          this.detailsInfo = false;
         }
       }
     }
