@@ -2,6 +2,8 @@
 
 My first vue js work. I've fetched data from the web api here. I have used 'https://restcountries.eu/rest/v2/all' for the web api. Here is the name of the country, the flag and some information.
 
+Total Country: 250
+
 ## Visit for testing
 
 https://country-vuejs.vercel.app/

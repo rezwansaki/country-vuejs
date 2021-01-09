@@ -31,7 +31,7 @@ export default {
         return{
             siteTitle: 'Country',
             siteLogo: 'earth.png',
-            componentToRender: 'compHome',
+            componentToRender: 'compHome'
         }
     },
     components: {
