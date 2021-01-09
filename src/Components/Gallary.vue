@@ -7,13 +7,27 @@
           <div class="card shadow-sm">
             <img class="card-img-top" :src="country.flag" alt="Card image cap">
             <div class="card-body">
-              <strong class="card-text">{{ country.name }}</strong>
+             <div class="container">
+              <div class="row">
+                  <div class="col-sm">
+                    <strong class="card-text">{{ country.name }}</strong>
+                  </div>
+                  <div class="col-sm">
+                    <!-- blank space -->
+                  </div>
+                  <div class="col-sm">
+                     <button v-if="btnShow" @click="getDetails" type="button" class="btn btn-sm btn-outline-secondary">
+                      Hide
+                    </button>
+                  </div>
+                </div>
+              </div>
+              
               <div>
                 Capital: {{ country.capital }} 
               </div>
               <div v-if="detailsInfo">
                   CallingCodes: {{ country.callingCodes }} <br>
-                  Alpha2Code: {{ country.alpha2Code }} <br>
                   Alpha3Code: {{ country.alpha3Code }} <br>
                   TopLevelDomain: {{ country.topLevelDomain }} <br>
                   Region: {{ country.region }} <br>
@@ -25,8 +39,8 @@
                   Borders: <div class="d-inline" v-for="border in country.borders" :key="border">
                    {{border}} |
                   </div><br>
-                  NativeName: {{ country.nativeName }} <br>
-                  NumericCode: {{ country.numericCode }} <br>
+                  Native Name: {{ country.nativeName }} <br>
+                  Numeric Code: {{ country.numericCode }} <br>
                   <div class="d-inline" v-for="currencie in country.currencies" :key="currencie">
                    Currencies Code: {{currencie.code}} <br> Currencies Name: {{currencie.name}} <br> Currencies Symbol: {{currencie.symbol}}
                   </div> <br>
@@ -39,7 +53,8 @@
               <div class="d-flex justify-content-between align-items-center mt-2">
                 <div class="btn-group">              
                     <button @click="getDetails" type="button" class="btn btn-sm btn-outline-secondary">
-                    View Details</button>
+                      View Details
+                    </button>
                 </div>
               </div>
             </div>
@@ -69,7 +84,8 @@ export default {
           last: 12,
           totalInPerPage: 12,
           countries: [],
-          detailsInfo: false
+          detailsInfo: false,
+          btnShow: false
         }
     },
     mounted(){
@@ -107,8 +123,10 @@ export default {
       getDetails(){
         if(this.detailsInfo == false){
           this.detailsInfo = true;
+          this.btnShow = true;
         }else{
           this.detailsInfo = false;
+          this.btnShow = false;
         }
       }
     }
