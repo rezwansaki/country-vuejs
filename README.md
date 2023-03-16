@@ -42,7 +42,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Project Version:
 
-1.0.0
+1.0.1
 
 ### Start Date:
 
@@ -50,7 +50,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Last Update:
 
-09-Jan-2021
+16-March-2023
 
 ### Developed by:
 
